@@ -1,3 +1,7 @@
+package api;
+
+import api.client.CourierRequest;
+import api.model.CourierLoginSerialization;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;

@@ -1,3 +1,4 @@
+package api.model;
 public class CourierLoginSerialization {
     private String login;
     private String password;

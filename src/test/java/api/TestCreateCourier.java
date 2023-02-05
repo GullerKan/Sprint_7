@@ -1,3 +1,9 @@
+package api;
+
+import api.client.CourierRequest;
+import api.model.CourierCreateSerialization;
+import api.model.CourierLoginSerialization;
+import api.util.Generator;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
@@ -47,22 +53,22 @@ public class TestCreateCourier {
     @DisplayName("Cоздание курьера под неуникальным логином")
     @Description("Проверка невозможности создания курьера под существующим логином")
     public void createCourierWhithExistingLogin() {
+        data = randomCourier;
         for (int i = 0; i < 2; i++) {
             response = courier.create(randomCourier);
         }
         response.statusCode(not(201));
-        data = randomCourier;
     }
 
     @Test
     @DisplayName("Cоздание курьера под неуникальным логином")
     @Description("Проверка соответствия response")
     public void createCourierWhithExistingLoginCheckResponse() {
+        data = randomCourier;
         for (int i = 0; i < 2; i++) {
             response = courier.create(randomCourier);
         }
         response.statusCode(409)
-                .and().assertThat().body("message", equalTo("Этот логин уже используется"));//Ожидаемый message согласно доке (тест падает)
-        data = randomCourier;
+                .and().assertThat().body("message", equalTo("Этот логин уже используется. Попробуйте другой."));//Ожидаемый message согласно доке (тест падает)
     }
 }

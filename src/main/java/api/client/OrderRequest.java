@@ -1,3 +1,7 @@
+package api.client;
+import api.model.OrderCreateSerialization;
+import api.util.Generator;
+import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 
 import static io.restassured.RestAssured.given;
@@ -7,6 +11,7 @@ public class OrderRequest extends Client {
     private static final String ORDERS = "/api/v1/orders";
     private static final String CANCEL = "/api/v1/orders/cancel";
 
+    @Step("Получение списка заказов")
     public ValidatableResponse getOrders() {
         return given()
                 .spec(getSpec())
@@ -14,6 +19,7 @@ public class OrderRequest extends Client {
                 .get(ORDERS)
                 .then().log().all();
     }
+    @Step("Создание заказа")
     public ValidatableResponse postOrders(OrderCreateSerialization order) {
         return given()
                 .spec(getSpec())
@@ -22,6 +28,7 @@ public class OrderRequest extends Client {
                 .post(ORDERS)
                 .then().log().all();
     }
+    @Step("Отмена заказа")
     public ValidatableResponse cancelOrders(String order) {
         return given()
                 .spec(getSpec())

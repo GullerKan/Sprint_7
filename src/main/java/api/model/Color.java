@@ -1,3 +1,4 @@
+package api.model;
 public class Color {
     private String color;
 

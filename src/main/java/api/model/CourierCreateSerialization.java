@@ -1,3 +1,4 @@
+package api.model;
 import groovyjarjarantlr4.v4.runtime.misc.Nullable;
 
 public class CourierCreateSerialization {

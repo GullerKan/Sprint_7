@@ -1,3 +1,4 @@
+package api.model;
 public class OrderDesserialization {
     private String track;
     private String ok;

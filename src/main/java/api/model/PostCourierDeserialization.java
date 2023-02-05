@@ -1,3 +1,4 @@
+package api.model;
 public class PostCourierDeserialization {
     private boolean ok;
     private String code;

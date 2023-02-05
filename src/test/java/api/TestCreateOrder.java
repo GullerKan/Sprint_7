@@ -1,4 +1,9 @@
+package api;
 
+import api.client.OrderRequest;
+import api.model.Color;
+import api.model.OrderCreateSerialization;
+import api.util.EnumColor;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.junit.After;
@@ -60,7 +65,7 @@ public class TestCreateOrder {
                 {"Тест", "Тестов", "ул. Ленина 5", "Черкизовская",
                         "+78003553535", 2, "2023-01-23", "Привет", List.of(EnumColor.BLACK), 201},
                 {"Тест", "Тестов", "ул. Ленина 5", "Черкизовская",
-                        "+78003553535", 2, "2023-01-23", "Привет", List.of(EnumColor.GREY,EnumColor.BLACK), 201}
+                        "+78003553535", 2, "2023-01-23", "Привет", List.of(EnumColor.GREY, EnumColor.BLACK), 201}
         };
     }
     @After
