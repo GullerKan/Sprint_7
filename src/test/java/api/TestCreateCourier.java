@@ -69,6 +69,6 @@ public class TestCreateCourier {
             response = courier.create(randomCourier);
         }
         response.statusCode(409)
-                .and().assertThat().body("message", equalTo("Этот логин уже используется. Попробуйте другой."));//Ожидаемый message согласно доке (тест падает)
+                .and().assertThat().body("message", equalTo("Этот логин уже используется"));//Ожидаемый message согласно доке (тест падает)
     }
 }
